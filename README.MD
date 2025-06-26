@@ -19,6 +19,8 @@ This project demonstrates a complete, real-world task management system:
 ## 📁 Project Structure
 
 
+
+
 task-management-system/
 ├── backend/ # Express API + JWT auth + MySQL
 │ ├── src/
@@ -37,6 +39,8 @@ task-management-system/
 │ └── Dockerfile
 ├── docker-compose.yml # Orchestrates backend, frontend, MySQL
 └── README.md # You’re reading it 👇
+
+
 
 
 ---
@@ -85,6 +89,8 @@ task-management-system/
 
 
 
+
+
 🎨 Features & Highlights
    🔒 JWT authentication with secure token handling
 
@@ -105,6 +111,9 @@ task-management-system/
    🧪 Complete backend & frontend testing
 
    🌐 Ready for CI/CD, Render deployment, GitHub versioning
+
+
+
 
 
 📝 Scripts
