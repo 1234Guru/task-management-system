@@ -15,9 +15,10 @@ const db = mysql.createPool({
   queueLimit: 0         // Unlimited queueing
 });
 
+
 // Optional: test the connection once at server start
 db.getConnection((err, connection) => {
-  if (err) {
+  if (err) { 
     console.error('❌ MySQL connection failed:', err.message);
     process.exit(1);
   } else {
