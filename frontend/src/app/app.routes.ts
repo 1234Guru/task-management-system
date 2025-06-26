@@ -42,13 +42,7 @@ export const routes: Routes = [
             (m) => m.JobFormComponent
           ),
       },
-      {
-        path: 'edit/:id',
-        loadComponent: () =>
-          import('./features/job-form/job-form.component').then(
-            (m) => m.JobFormComponent
-          ),
-      },
+     
       {
         path: 'stats',
         loadComponent: () =>
