@@ -19,7 +19,13 @@ dotenv.config({
 const port = process.env.PORT || 3000;
 
 // ✅ MIDDLEWARE (Important: BEFORE ROUTES)
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors()); // Needed to handle preflight
+
 app.use(express.json()); // ✅ Body parser
 app.use(express.urlencoded({ extended: true }));
 
