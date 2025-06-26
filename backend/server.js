@@ -12,6 +12,12 @@ dotenv.config({
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+console.log('✅ ENV Loaded:', {
+  DB_HOST: process.env.DB_HOST,
+  DB_USER: process.env.DB_USER,
+  DB_NAME: process.env.DB_NAME,
+  PORT: process.env.PORT,
+});
 
 // Your usual middleware and routes here
 app.listen(port, () => {
