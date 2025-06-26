@@ -1,37 +1,30 @@
-<div class="job-cards-container">
+<div class="job-controls">
+  <label>Search:</label>
+  <input type="text" [(ngModel)]="searchText" placeholder="Filter by any field..." />
+
  
-  <mat-card class="job-card" *ngFor="let job of jobs(); trackBy: trackById">
-    
+ <button mat-button (click)="toggleSortOrder()">
+    Sort by Position: {{ sortDirection === 'asc' ? 'A-Z ↑' : 'Z-A ↓' }}
+  </button>
+</div>
+
+<div class="job-cards-container">
+  <mat-card class="job-card" *ngFor="let job of filteredAndSortedJobs(); trackBy: trackById">
     <mat-card-header>
       <mat-card-title>{{ job.position }}</mat-card-title>
       <mat-card-subtitle>{{ job.company }}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <p
-        [ngClass]="'status-label ' + job.status.toLowerCase().replace(' ', '-')"
-      >
+      <p [ngClass]="'status-label ' + job.status.toLowerCase().replace(' ', '-')">
         <strong>Status:</strong> {{ job.status }}
       </p>
-
-      <p>
-        <strong>Applied On:</strong>
-        {{ job.applied_date | date : "mediumDate" }}
-      </p>
+      <p><strong>Applied On:</strong> {{ job.applied_date | date : "mediumDate" }}</p>
     </mat-card-content>
 
     <mat-card-actions align="end">
-      <button mat-stroked-button color="primary" (click)="edit(job)">
-        Edit
-      </button>
-      <button
-        mat-stroked-button
-        color="warn"
-        (click)="job.id !== undefined && remove(job.id)"
-      >
-        Delete
-      </button>
+      <button mat-stroked-button color="primary" (click)="edit(job)">Edit</button>
+      <button mat-stroked-button color="warn" (click)="job.id !== undefined && remove(job.id)">Delete</button>
     </mat-card-actions>
-    
   </mat-card>
 </div>

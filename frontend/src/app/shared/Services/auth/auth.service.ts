@@ -3,7 +3,8 @@ import { Injectable, inject, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { catchError, tap } from 'rxjs';
 import { User } from '../../models/global.model';
-import { environment } from '../../environments/environment.prod'; // Import environment
+import { environment } from '../../environments/environment'; // Import environment
+import { environmentManipulation } from '../../../state/job.state';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class AuthService {
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
   private tokenKey = 'job_token';
-  private baseUrl = environment.apiUrl;
+  private baseUrl = environmentManipulation() ;
 
   user = signal<User | null>(null);
 
@@ -21,6 +22,7 @@ export class AuthService {
       const token = localStorage.getItem(this.tokenKey);
       if (token) this.setUserFromToken(token);
     }
+
   }
 
   login(data: any) {

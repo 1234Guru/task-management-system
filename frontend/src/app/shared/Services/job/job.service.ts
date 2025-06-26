@@ -2,17 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Job } from '../../models/global.model';
-import { environment } from '../../environments/environment.prod'; // Import environment
+import { environment } from '../../environments/environment'; // Import environment
+import { environmentManipulation } from '../../../state/job.state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobService {
-  private baseUrl = environment.apiUrl;
-
+  private baseUrl = environmentManipulation();
   private API = this.baseUrl + '/jobs';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+
+  }
 
   fetchJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(this.API);

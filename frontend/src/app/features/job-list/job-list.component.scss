@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 16px;
-  padding: 16px;
+  padding: 16px 0px;
 }
 
 .job-card {
@@ -90,5 +90,23 @@
 }
 //status colors
 
+
+//filterable
+.job-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 16px;
+
+  input, select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    min-width: 200px;
+  }
+}
+
+//filterable
 
 /* styles.scss or component-specific style file */

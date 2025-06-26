@@ -7,5 +7,6 @@ import { Job } from '../shared/models/global.model';
 export const jobList = signal<Job[]>([]);
 export const selectedJob = signal<Job | null>(null);
 export const loading = signal(false);
+export const environmentManipulation = signal("");
 
 //define state
