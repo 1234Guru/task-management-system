@@ -20,7 +20,7 @@ const db = require("./src/config/db"); // ✅ Import the db file to trigger conn
 
 // Log loaded ENV variables for debugging
 // Middleware
-app.use(cors({ origin: '*' })); // Allow all origins for development
+app.use(cors()); // Allow all origins for development
 app.use(express.json()); // For parsing application/json
 
 // Register routes

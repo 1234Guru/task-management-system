@@ -1,6 +1,8 @@
+const app = require("express")();
 const path = require('path');
 const dotenv = require('dotenv');
 const db = require('./src/config/db'); // ✅ Import the db file to trigger connection
+const cors = require('cors'); // Only once
 
 // Load the correct .env file
 dotenv.config({
@@ -8,9 +10,8 @@ dotenv.config({
     ? path.resolve(__dirname, '.env.production')
     : path.resolve(__dirname, '.env')
 });
+app.use(cors()); // Allow all origins for development
 
-const express = require('express');
-const app = express();
 const port = process.env.PORT || 3000;
 
 
