@@ -1,0 +1,19 @@
+<div fxLayout="row wrap" fxLayoutGap="16px">
+
+  <app-job-stats></app-job-stats>
+  
+  <div class="job-container">
+    <div class="job-list" [class.shrinked]="selected()">
+      <app-job-list></app-job-list>
+    </div>
+
+    <div class="job-form" *ngIf="selected()">
+      <app-job-form
+        class="forms"
+        [job]="selected()"
+        (close)="clear()"
+      ></app-job-form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,94 @@
+/* styles.scss or component-specific style file */
+.job-cards-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 1rem 0rem;
+}
+
+.job-card {
+  padding: 1rem 1rem;
+}
+
+.job-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  mat-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.95rem;
+    color: #757575;
+  }
+
+  mat-card-content {
+    font-size: 0.95rem;
+    padding-top: 8px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  button {
+    font-size: 0.85rem;
+    text-transform: none;
+  }
+}
+
+//status colors
+.status-label {
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.applied {
+  background-color: #1976d2; // blue
+}
+
+.interview {
+  background-color: #ff9800; // orange
+}
+
+.rejected {
+  background-color: #f44336; // red
+}
+
+.offered {
+  background-color: #4caf50; // green
+}
+
+.on-hold {
+  background-color: #9e9e9e; // gray
+}
+//status colors
+
+
+/* styles.scss or component-specific style file */

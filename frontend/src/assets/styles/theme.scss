@@ -1,0 +1,12 @@
+$primary-color: #0D47A1;
+$accent-color: #42A5F5;
+$background-color: #F3F6F9;
+$text-color: #212121;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}

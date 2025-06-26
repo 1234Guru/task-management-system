@@ -1,0 +1,72 @@
+//register styles 
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 16px;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+}
+
+.register-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+
+  ::ng-deep .mat-form-field-infix {
+    font-size: 14px;
+  }
+
+  ::ng-deep .mat-form-field-label {
+    font-size: 13px;
+  }
+
+  ::ng-deep input {
+    font-size: 14px;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registerAcc {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+
+//register button 
+.switch-auth {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+
+  a {
+    color: #1976d2;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+//register button 
+//register styles 
+
