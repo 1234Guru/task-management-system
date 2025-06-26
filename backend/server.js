@@ -19,21 +19,19 @@ dotenv.config({
 const port = process.env.PORT || 3000;
 
 // ✅ MIDDLEWARE (Important: BEFORE ROUTES)
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Handle preflight manually
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // All necessary methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow JSON + Bearer Token
-  res.removeHeader('x-powered-by'); // Security: remove Express fingerprint
-
-  // Handle preflight requests for complex headers/methods
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(204); // No content, short-circuits preflight
+    return res.sendStatus(204);
   }
-
-  next(); // Continue to routes
+  next();
 });
-
-
 app.use(express.json()); // ✅ Body parser
 app.use(express.urlencoded({ extended: true }));
 
