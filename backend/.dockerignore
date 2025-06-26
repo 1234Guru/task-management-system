@@ -1,0 +1,13 @@
+# Node backend ignores
+node_modules
+dist
+logs
+coverage
+.env
+*.log
+Dockerfile
+.vscode
+.idea
+.DS_Store
+.git
+.gitignore

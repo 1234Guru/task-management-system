@@ -1,0 +1,16 @@
+# Angular frontend ignores
+node_modules
+dist
+build
+.tmp
+.cache
+.env
+*.log
+Dockerfile
+.vscode
+.idea
+.DS_Store
+.git
+.gitignore
+.angular
+coverage
