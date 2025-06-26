@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest --runInBand",
-    "dev": "cross-env NODE_ENV=development node server.js",
-    "prod": "cross-env NODE_ENV=production node server.js",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "dev": "cross-env NODE_ENV=development node app.js",
+    "prod": "cross-env NODE_ENV=production node app.js",
+    "start": "cross-env NODE_ENV=production node app.js"
   },
   "keywords": [],
   "author": "",
