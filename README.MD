@@ -1,127 +1,122 @@
-# 🚀 Task Management System
+# 📚 Angular + Express Posts Viewer
 
-A modern full-stack task/job tracking application featuring user registration, authentication, job CRUD, and dashboard statistics. Built with **Angular 19.2 (stand-alone)** + **Node.js**, **Express**, **MySQL**, and **Docker**, ready for deployment.
-
----
-
-## 🔍 What & Why
-
-This project demonstrates a complete, real-world task management system:
-
-- ✅ Secure user authentication with JWT
-- ✅ Job/task CRUD with state-managed UI
-- ✅ Responsive UI using Angular Material
-- ✅ Containerized architecture with Docker
-- ✅ Built for interviews & real-world scenarios
+A full-stack web app that fetches blog-style posts from the public [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API using a Node.js + Express backend and displays them with Angular Material UI.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Tech Stack
 
-
-
-
-task-management-system/
-├── backend/ # Express API + JWT auth + MySQL
-│ ├── src/
-│ │ ├── controllers/ # Route handlers
-│ │ ├── middleware/ # Auth & error handling
-│ │ ├── models/ # MySQL queries
-│ │ ├── routes/ # API routes
-│ ├── app.js # Express app
-│ └── Dockerfile
-├── frontend/ # Angular 19 standalone app
-│ ├── src/
-│ │ ├── core/ # Auth, guards, layout
-│ │ ├── features/ # Job components & stats
-│ │ ├── shared/ # Services, interceptors
-│ │ ├── environments/ # Dev + prod configs
-│ └── Dockerfile
-├── docker-compose.yml # Orchestrates backend, frontend, MySQL
-└── README.md # You’re reading it 👇
-
-
-
+- **Frontend**: Angular 17+, Angular Material, SCSS
+- **Backend**: Node.js, Express
+- **API**: [jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)
 
 ---
 
+## 🚀 Features
+
+- ✅ Responsive layout (Header, Main Table, Footer)
+- 🔍 API-based global search (via header input)
+- 📄 Local client-side table filtering
+- 📦 CORS-safe backend proxy
+- 🛡️ Input validation on both client and server
+- ✨ Clean and modern Material UI design
+
 ---
 
-## ⚙️ Local Setup with Docker
+## 📁 Folder Structure
 
-1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. Create `.env` in root:
-   ```env
-   JWT_SECRET=supersecret
-   DB_HOST=mysql
-   DB_USER=root
-   DB_PASSWORD=root
-   DB_NAME=jobtracker
+```
+posts-app/
+├── backend/         # Express API server
+│   ├── app.js
+│   ├── routes/posts.js
+│   └── controllers/postsController.js
+└── frontend/        # Angular app (ng new)
+    └── src/app/
+        ├── components/
+        │   ├── header/
+        │   ├── main/
+        │   └── footer/
+        ├── services/posts.service.ts
+        └── app.component.ts/html
+```
 
-3. Run the stack:
-   docker-compose up --build
+---
 
-4. Endpoints:
-   Frontend 👉 http://localhost:4200
-   API 👉 http://localhost:3000/api
-   MySQL UI 👉 http://localhost:8081 (root / root)
+## ⚙️ Setup Instructions
 
-🧪 Run Tests:-
-  Frontend (Karma + Jasmine):-
-  cd frontend
-  ng test
-   Backend (Jest + Supertest):
-  /////////
-   cd backend
-   npm test
-  /////////
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/your-username/posts-app.git
+cd posts-app
+```
 
-🗂 API Overview
-| Method | Endpoint           | Description               |
-| ------ | ------------------ | ------------------------- |
-| POST   | /api/auth/register | Register a new user       |
-| POST   | /api/auth/login    | Login user, returns token |
-| GET    | /api/jobs          | Get all jobs (auth)       |
-| POST   | /api/jobs          | Create new job (auth)     |
-| PUT    | /api/jobs/\:id     | Update job (auth)         |
-| DELETE | /api/jobs/\:id     | Delete job (auth)         |
+### 2. Backend Setup
 
+```bash
+cd backend
+npm install
+npm run dev         # Starts Express on http://localhost:3000
+```
 
+### 3. Frontend Setup
 
+```bash
+cd ../frontend
+npm install
+ng serve            # Starts Angular on http://localhost:4200
+```
 
+---
 
-🎨 Features & Highlights
-   🔒 JWT authentication with secure token handling
+## 🔄 API Proxy Logic
 
-🧩 Angular Signals for reactive global state
+Frontend calls `http://localhost:3000/api/posts`, which internally fetches from:
 
-   📦 HttpInterceptor to attach tokens to every request
+```
+GET https://jsonplaceholder.typicode.com/posts
+```
 
-   📊 Job CRUD with stat tracking
+Supports optional search via:
 
-   📱 Responsive UI layout (70% job list, 30% job form)
+```
+GET /api/posts?q=searchTerm
+```
 
-   🚀 Angular Material UI
+---
 
-   🔐 Route guards (AuthGuard)
+## 🧪 Example Usage
 
-   🐳 One-command full Docker setup
+- Visit `http://localhost:4200/` to view all posts
+- Type a phrase in the header (e.g. "sunt") → triggers API search
+- Use the in-table search input → filters loaded data locally
 
-   🧪 Complete backend & frontend testing
+---
 
-   🌐 Ready for CI/CD, Render deployment, GitHub versioning
+## 📦 Prerequisites
 
+- Node.js v18+
+- Angular CLI → `npm install -g @angular/cli`
+- (Optional) `nodemon` for backend development
 
+---
 
+## 💡 Development Tips
 
+- 💥 To avoid double API calls on dev reload, use `ngOnInit()` or guard with a flag
+- 🧪 Use `console.log()` to debug `ViewChild` availability in `AppComponent`
+- 🖌️ Customize Material theme via `angular.json` and SCSS
 
-📝 Scripts
-| Component | Command               | Description                         |
-| --------- | --------------------- | ----------------------------------- |
-| Backend   | `npm run dev`         | Starts Node.js server in dev mode   |
-|           | `npm test`            | Runs backend unit/integration tests |
-| Frontend  | `ng serve`            | Runs Angular app locally            |
-|           | `ng test`             | Runs frontend test suite            |
-| Docker    | `docker-compose up`   | Build and start entire stack        |
-|           | `docker-compose down` | Stop and remove containers          |
+---
+
+## 📄 License
+
+MIT – Free to use, modify, and learn from.
+
+---
+
+## ✍️ Author
+
+**Your Name** — [@yourgithub](https://github.com/yourgithub)
+

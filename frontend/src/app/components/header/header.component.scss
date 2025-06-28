@@ -1,0 +1,55 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    mat-icon {
+      font-size: 20px;
+    }
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    .search-input {
+      height: 36px;
+      border: none;
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 14px;
+      width: 220px;
+      outline: none;
+    }
+
+    button {
+      height: 36px;
+      width: 36px;
+      border: none;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+
+      &:disabled {
+        color: rgba(255, 255, 255, 0.4);
+        cursor: default;
+      }
+
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+ .fixed-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 90;
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.08); 
+  width: 100%;
+}
+.scrollable-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #fafafa; // optional
+  margin-bottom: 50px;
+
+}

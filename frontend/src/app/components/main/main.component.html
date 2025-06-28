@@ -1,0 +1,40 @@
+<div class="main-wrapper">
+  <!-- Local Filter Input -->
+  <mat-form-field appearance="outline" class="search-box">
+    <mat-label>Filter</mat-label>
+    <input matInput [formControl]="localFilter" placeholder="Search..." />
+    <button *ngIf="localFilter.value" mat-icon-button matSuffix (click)="localFilter.setValue('')">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="dataSource" matSort class="custom-table mat-elevation-z1">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let p">{{ p.id }}</td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+      <td mat-cell *matCellDef="let p">{{ p.title }}</td>
+    </ng-container>
+
+    <!-- Body Column -->
+    <ng-container matColumnDef="body">
+      <th mat-header-cell *matHeaderCellDef>Body</th>
+      <td mat-cell *matCellDef="let p">{{ p.body }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Empty state -->
+    <tr class="empty-row" *ngIf="dataSource.data.length === 0">
+      <td colspan="3" class="no-data">No posts to show.</td>
+    </tr>
+  </table>
+</div>

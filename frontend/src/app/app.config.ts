@@ -8,9 +8,9 @@ import {
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { TokenInterceptor } from './core/auth/interceptors/token.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 export const appConfig: ApplicationConfig = {
   providers: [
     // ✅ Zone optimization
@@ -30,10 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
 
     // ✅ Token Interceptor DI registration
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,
-    }
+    MatFormFieldModule,
+    MatInputModule,
   ]
 };

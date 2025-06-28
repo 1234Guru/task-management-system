@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <!-- Logo -->
+  <div class="logo">
+    <mat-icon>article</mat-icon>
+    <span>MyPosts</span>
+  </div>
+
+  <!-- Search input -->
+  <form class="search-form" (submit)="onEnter()">
+    <input
+      type="text"
+      class="search-input"
+      [formControl]="ctrl"
+      placeholder="Search posts…"
+    />
+
+  </form>
+</mat-toolbar>
